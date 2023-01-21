@@ -1,4 +1,4 @@
-package ca.qaguru.oranghrmbatch21.pages;
+package ca.qaguru.oranghrmbatch27.pages;
 
 public class MenuOptions {
     public static final String CANDIDATES = "Recruitment|Candidates";

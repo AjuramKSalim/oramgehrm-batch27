@@ -1,10 +1,10 @@
-package ca.qaguru.oranghrmbatch21.tests;
+package ca.qaguru.oranghrmbatch27.tests;
 
 import ca.qaguru.oranghrmbatch21.library.TestBase;
-import ca.qaguru.oranghrmbatch21.pages.EducationPage;
-import ca.qaguru.oranghrmbatch21.pages.HeaderPage;
-import ca.qaguru.oranghrmbatch21.pages.LoginPage;
-import ca.qaguru.oranghrmbatch21.pages.MenuOptions;
+import ca.qaguru.oranghrmbatch27.pages.EducationPage;
+import ca.qaguru.oranghrmbatch27.pages.HeaderPage;
+import ca.qaguru.oranghrmbatch27.pages.LoginPage;
+import ca.qaguru.oranghrmbatch27.pages.MenuOptions;
 import org.testng.annotations.Test;
 
 import java.util.UUID;

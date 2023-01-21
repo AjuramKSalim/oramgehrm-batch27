@@ -1,6 +1,6 @@
-package ca.qaguru.oranghrmbatch21.pages;
+package ca.qaguru.oranghrmbatch27.pages;
 
-import ca.qaguru.oranghrmbatch21.library.PageBase;
+import ca.qaguru.oranghrmbatch27.library.PageBase;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;

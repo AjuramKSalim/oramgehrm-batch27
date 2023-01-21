@@ -1,6 +1,6 @@
-package ca.qaguru.oranghrmbatch21.pages;
+package ca.qaguru.oranghrmbatch27.pages;
 
-import ca.qaguru.oranghrmbatch21.library.PageBase;
+import ca.qaguru.oranghrmbatch27.library.PageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

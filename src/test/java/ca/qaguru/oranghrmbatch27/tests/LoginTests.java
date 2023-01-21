@@ -1,13 +1,8 @@
-package ca.qaguru.oranghrmbatch21.tests;
+package ca.qaguru.oranghrmbatch27.tests;
 
-import ca.qaguru.oranghrmbatch21.library.TestBase;
-import ca.qaguru.oranghrmbatch21.pages.LoginPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+
+import ca.qaguru.oranghrmbatch27.library.TestBase;
+import ca.qaguru.oranghrmbatch27.pages.LoginPage;
 import org.testng.annotations.Test;
 
 public class LoginTests extends TestBase {
