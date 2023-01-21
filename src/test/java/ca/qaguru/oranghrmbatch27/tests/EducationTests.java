@@ -1,6 +1,7 @@
 package ca.qaguru.oranghrmbatch27.tests;
 
-import ca.qaguru.oranghrmbatch21.library.TestBase;
+
+import ca.qaguru.oranghrmbatch27.library.TestBase;
 import ca.qaguru.oranghrmbatch27.pages.EducationPage;
 import ca.qaguru.oranghrmbatch27.pages.HeaderPage;
 import ca.qaguru.oranghrmbatch27.pages.LoginPage;
