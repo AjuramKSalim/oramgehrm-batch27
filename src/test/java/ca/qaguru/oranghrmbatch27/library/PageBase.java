@@ -67,11 +67,7 @@ public abstract class PageBase {
             action.moveByOffset(offsetX,offsetY).build().perform();
             log.debug("mouseMove({},{}) done sucessfully",offsetX,offsetY);
 
-        } catch (StaleElementReferenceException exception) {
-            sleep(REATTEMPT_DELAY);
-            log.debug("mouseMove({},{}) failed - StaleElementReferenceException. Attempting again...",offsetX,offsetY);
-            mouseMove(offsetX,offsetY);
-        }catch (ElementNotInteractableException exception) {
+        } catch (StaleElementReferenceException | ElementNotInteractableException exception) {
             sleep(REATTEMPT_DELAY);
             log.debug("mouseMove({},{}) failed - StaleElementReferenceException. Attempting again...",offsetX,offsetY);
             mouseMove(offsetX,offsetY);
