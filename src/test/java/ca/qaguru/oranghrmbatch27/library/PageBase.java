@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -91,7 +92,7 @@ public abstract class PageBase {
             }
 
             try {
-                WebElement we = new WebDriverWait(driver, WAIT_TIME)
+                WebElement we = new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIME))
                         .until(ExpectedConditions
                                 .presenceOfElementLocated(by));
                 we.clear();

@@ -20,7 +20,7 @@ public void addNewEducation() {
     EducationPage educationPage = new EducationPage(driver);
     educationPage.saveNewEducation("Level1");
     String uuid = UUID.randomUUID().toString();
-    educationPage.saveNewEducation("level1"+uuid);
+    educationPage.saveNewEducation("level1" + uuid);
 }
 }
 
