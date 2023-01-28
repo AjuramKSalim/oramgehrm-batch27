@@ -14,8 +14,8 @@ import java.util.List;
 @Slf4j
 public class HeaderPage extends PageBase {
     private String lblWelcome = "//*[@id='welcome']";
-    private String mnuItem = "//*[@id='mainMenu']//descendant::*[text()='XXX']";
-    private String idMenu = "mainMenu";
+    private String menuItem = "//*[@id='app']//descendant::*[text()='XXX']";
+    private String menuClassName = "oxd-main-menu-item";
 
     public HeaderPage(WebDriver driver) {
         super(driver);
@@ -31,7 +31,7 @@ public class HeaderPage extends PageBase {
         int menuLevel=0;
         for (String item:menuItems){
             menuLevel++;
-            By byMenu = By.xpath(mnuItem.replace("XXX",item));
+            By byMenu = By.xpath(menuItem.replace("XXX",item));
             Rectangle rectangle = getRect(byMenu);
             log.debug("Menu item coordinates- X1:{}, Y1:{}, X2 :{}, Y2 :{}", rectangle.getX(),rectangle.getY(),
                     rectangle.getX()+rectangle.getWidth(), rectangle.getY()+rectangle.getHeight());
@@ -50,7 +50,7 @@ public class HeaderPage extends PageBase {
 
     }
     public boolean isMenuVisible(){
-        return isElementVisible(By.id(idMenu));
+        return isElementVisible(By.className(menuClassName));
     }
 
 }

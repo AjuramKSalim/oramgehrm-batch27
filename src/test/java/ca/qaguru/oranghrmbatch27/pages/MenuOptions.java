@@ -15,11 +15,11 @@ public class MenuOptions {
     public static final String EMPLOYEE_REPORTS = "PIM|Reports";
     public static final String DIRECTORY = "Directory";
     public static final String NATIONALITIES = "Admin|Nationalities";
-    public static final String EDUCATION = "Admin|Qualifications|Education";
+    public static final String EDUCATION = "Admin|Qualifications |Education";
     public static final String SKILLS = "Admin|Qualifications|Skills";
     public static final String LICENSES = "Admin|Qualifications|Licenses";
     public static final String LANGUAGES = "Admin|Qualifications|Languages";
-    public static final String MEMBERSHIPS = "Admin|Qualifications|Memberships";
+    public static final String MEMBERSHIPS = "Admin|Qualifications |Memberships";
     public static final String CUSTOMERS = "Time|Project Info|Customers";
     public static final String PROJECTS = "Time|Project Info|Projects";
 
