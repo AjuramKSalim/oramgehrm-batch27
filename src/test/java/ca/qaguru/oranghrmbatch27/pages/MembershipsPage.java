@@ -28,20 +28,13 @@ public class MembershipsPage extends PageBase {
         PageFactory.initElements(driver, this);
     }
 
-    public void saveNewMemberships(String membershipName) {
+    public void saveNewMembershipAndVerifyItsAdded(String membershipName) {
         click(By.cssSelector(membershipAddButtonClassName));
         setText(By.cssSelector(membershipNameTextAreaCssSelector), membershipName);
         if (getText(By.xpath(membershipNameAlreadyExistsLabel)).contains("Already exists")) {
             click(By.xpath(addMembershipCancelButtonXPath));
         } else {
             click(By.xpath(membershipSaveButtonXPath));
-        }
-        isElementVisible(By.cssSelector(membershipTableClassName));
-
-        for (WebElement Education : membershipTableElements) {
-            String txtEducation = Education.getText();
-            System.out.println(txtEducation);
-
         }
         Boolean match = membershipTableElements.stream().map(s -> s.getText()).anyMatch(s -> s.equalsIgnoreCase(membershipName));
         Assert.assertTrue(match);
