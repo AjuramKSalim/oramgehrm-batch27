@@ -15,9 +15,8 @@ public void addNewMembership() {
     HeaderPage headerPage = new HeaderPage(driver);
     headerPage.selectMenu(MenuOptions.MEMBERSHIPS);
     MembershipsPage membershipsPage = new MembershipsPage(driver);
-    membershipsPage.saveNewMemberships("Level1");
-    String uuid = UUID.randomUUID().toString();
-    membershipsPage.saveNewMemberships("level2 " + uuid);
+    membershipsPage.saveNewMembershipAndVerifyItsAdded("Level1");
+
 }
 }
 
