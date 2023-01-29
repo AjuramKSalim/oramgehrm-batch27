@@ -17,7 +17,7 @@ public class MenuOptions {
     public static final String NATIONALITIES = "Admin|Nationalities";
     public static final String EDUCATION = "Admin|Qualifications |Education";
     public static final String SKILLS = "Admin|Qualifications|Skills";
-    public static final String LICENSES = "Admin|Qualifications|Licenses";
+    public static final String LICENSES = "Admin|Qualifications |Licenses";
     public static final String LANGUAGES = "Admin|Qualifications|Languages";
     public static final String MEMBERSHIPS = "Admin|Qualifications |Memberships";
     public static final String CUSTOMERS = "Time|Project Info|Customers";
