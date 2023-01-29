@@ -14,12 +14,12 @@ public class EducationTests extends TestBase {
 @Test
 public void addNewEducation() {
     LoginPage loginPage = new LoginPage(driver);
-    loginPage.login("admin", "admin123", true, null);
+    loginPage.login("Admin", "admin123", true, null);
     HeaderPage headerPage = new HeaderPage(driver);
     headerPage.selectMenu(MenuOptions.EDUCATION);
     EducationPage educationPage = new EducationPage(driver);
     educationPage.saveNewEducation("Level1");
-    String uuid = UUID.randomUUID().toString();
+   String uuid = UUID.randomUUID().toString();
     educationPage.saveNewEducation("level1" + uuid);
 }
 }
