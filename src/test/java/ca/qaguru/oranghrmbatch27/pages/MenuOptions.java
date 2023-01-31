@@ -4,7 +4,7 @@ public class MenuOptions {
     public static final String CANDIDATES = "Recruitment|Candidates";
     public static final String VACANCIES = "Recruitment|Vacancies";
     public static final String USERS = "Admin|User Management|Users";
-    public static final String JOB_TITLES = "Admin|Job|Job Titles";
+    public static final String JOB_TITLES = "Admin|Job |Job Titles";
     public static final String PAY_GRADES = "Admin|Job|Pay Grades";
     public static final String EMPLOYMENT_STATUS = "Admin|Job|Employment Status";
     public static final String JOB_CATEGORIES = "Admin|Job|Job Categories";

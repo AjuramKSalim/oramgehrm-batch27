@@ -20,6 +20,9 @@ public class EducationPage extends PageBase {
     private final String getIdEduCancelBtn= "//div[@class='oxd-form-actions'] /button[1]";
     private final String tblEducation = ".oxd-table-body";
     private final String educations = "//div[@class='oxd-table-body'] /div[@class='oxd-table-card']";
+
+    // //div[contains(@class, 'oxd-table-body')]/div[contains(@class,'oxd-table-card')]
+
     @FindBy(xpath = educations)
     private List<WebElement> listEducations;
 
