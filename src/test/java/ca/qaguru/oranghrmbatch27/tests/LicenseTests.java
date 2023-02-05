@@ -15,7 +15,8 @@ public class LicenseTests extends TestBase {
         headerPage.selectMenu(MenuOptions.LICENSES);
         LicensePage licensePage = new LicensePage(driver);
         licensePage.saveNewLicense("ISO-2005");
-       // String uuid = UUID.randomUUID().toString();
-      //  licensePage.saveNewLicense("ISO-2005" + uuid);
+        String uuid = UUID.randomUUID().toString();
+        licensePage.saveNewLicense("ISO-2005" + uuid);
     }
+
 }
