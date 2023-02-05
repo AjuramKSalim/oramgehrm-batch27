@@ -12,9 +12,7 @@ import java.util.List;
 
 public class LicensePage extends PageBase {
     WebDriver driver;
-   private final String idLicAddBtn = ".oxd-button--secondary";
-
-    // private final String idLicTxtLevel="div[class='oxd-form-row'] input[class*='oxd-input']";
+    private final String idLicAddBtn = ".oxd-button--secondary";
     private final String idLicTxtLevel=".oxd-input--active";
     private final String idLicSaveBtn="//button[@type='submit']";
     private final String lblAlreadyExistsMessage = "//div[@class='oxd-form-row'] /div";
@@ -30,8 +28,6 @@ public class LicensePage extends PageBase {
         this.driver=driver;
         PageFactory.initElements(driver,this);
     }
-
-
     public void saveNewLicense(String license)
     {
         click(By.cssSelector(idLicAddBtn));
