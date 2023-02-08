@@ -18,5 +18,15 @@ public class LicenseTests extends TestBase {
         String uuid = UUID.randomUUID().toString();
         licensePage.saveNewLicense("ISO-2005" + uuid);
     }
+    @Test
+    public void deleteLicense()
+    {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("Admin", "admin123", true, null);
+        HeaderPage headerPage = new HeaderPage(driver);
+        headerPage.selectMenu(MenuOptions.LICENSES);
+        LicensePage licensePage = new LicensePage(driver);
+        licensePage.deleteLicense("Certified Information Security Manager (CISM)");
+    }
 
 }
