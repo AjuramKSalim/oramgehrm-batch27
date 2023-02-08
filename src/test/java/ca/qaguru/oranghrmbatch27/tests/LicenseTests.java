@@ -18,5 +18,14 @@ public class LicenseTests extends TestBase {
         String uuid = UUID.randomUUID().toString();
         licensePage.saveNewLicense("ISO-2005" + uuid);
     }
-
+    @Test
+    public void edtLicense() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("Admin", "admin123", true, null);
+        HeaderPage headerPage = new HeaderPage(driver);
+        headerPage.selectMenu(MenuOptions.LICENSES);
+        LicensePage licensePage = new LicensePage(driver);
+        int randomNumber1 = (int) (Math.random()*(5)+1);
+        licensePage.editLicense( "Cisco Certified Network Associate (CCNA)","GD&T");
+    }
 }
