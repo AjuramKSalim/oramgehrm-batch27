@@ -20,7 +20,8 @@ public abstract class PageBase {
     private static final int REATTEMPT_DELAY = 500;
     protected static final int MENU_SELECTION_DELAY = 1000;
 
-    public PageBase(WebDriver driver) {
+    public PageBase(WebDriver driver)
+    {
         this.driver = driver;
     }
     protected void click(By by) {
