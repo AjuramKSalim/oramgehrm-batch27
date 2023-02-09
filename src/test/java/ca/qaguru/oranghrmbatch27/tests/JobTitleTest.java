@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import java.util.UUID;
 public class JobTitleTest extends TestBase {
 
-    String jobName="Tesing001";
+    String jobName="Tesing job";
     @Test
     public void addNewJob( ) {
         LoginPage loginPage = new LoginPage(driver);
