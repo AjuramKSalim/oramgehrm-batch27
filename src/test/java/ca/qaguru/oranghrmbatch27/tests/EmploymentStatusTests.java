@@ -3,7 +3,6 @@ import ca.qaguru.oranghrmbatch27.library.TestBase;
 import ca.qaguru.oranghrmbatch27.pages.*;
 import org.testng.annotations.Test;
 public class EmploymentStatusTests extends TestBase {
-
     @Test
     public void addNewEmploymentAndVerifyIsDisplayed() {
         LoginPage loginPage = new LoginPage(driver);
