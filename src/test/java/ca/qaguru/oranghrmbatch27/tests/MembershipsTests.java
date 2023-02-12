@@ -21,6 +21,12 @@ public class MembershipsTests extends TestBase {
         membershipsPage.updateMembershipAndVerifyIfChanged("Level1", "Level1-updated");
     }
 
+    @Test(priority = 3)
+    public void deleteMembership() throws Exception {
+        MembershipsPage membershipsPage = loginAndFetchMembershipsPage();
+        membershipsPage.deleteMembershipAndVerifyItsDeleted("Level1-updated");
+    }
+
     private MembershipsPage loginAndFetchMembershipsPage() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login("admin", "admin123", true, null);

@@ -73,4 +73,25 @@ public class MembershipsPage extends PageBase {
         System.out.println(oldName + " was updated to "+ newName +" successfully");
         System.out.println("\n");
     }
+
+    public void deleteMembershipAndVerifyItsDeleted(String name) throws Exception {
+        isElementVisible(By.cssSelector(membershipTableClassName));
+        Optional<WebElement> optionalWebElement = membershipTableElements.stream()
+                .filter(element ->  element.getText().equalsIgnoreCase(name))
+                .findFirst();
+        if(optionalWebElement.isEmpty()) {
+            throw new Exception("The requested membership entry could not be found");
+        }
+
+        WebElement deleteButton = optionalWebElement.get()
+                .findElement(By.cssSelector((".oxd-icon.bi-trash")));
+        click(deleteButton);
+        click(By.xpath("//button[normalize-space()='Yes, Delete']"));
+
+        Boolean match = membershipTableElements.stream().map(s -> s.getText()).anyMatch(s -> s.equalsIgnoreCase(name));
+        Assert.assertFalse(match);
+        System.out.println("\n");
+        System.out.println(name + " was deleted successfully");
+        System.out.println("\n");
+    }
 }
