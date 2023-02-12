@@ -55,7 +55,7 @@
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/java/ca/qaguru/orangehrmbatch26/tests/testng.xml</suiteXmlFile>
-                    </suiteXmlFiles>
+                     </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>

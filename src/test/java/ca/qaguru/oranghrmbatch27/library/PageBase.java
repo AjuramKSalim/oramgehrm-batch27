@@ -92,9 +92,8 @@ public abstract class PageBase {
                 WebElement we = new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIME))
                         .until(ExpectedConditions
                                 .presenceOfElementLocated(by));
-
-                Actions a = new Actions(driver);
-                a.moveToElement(we).doubleClick().click().sendKeys(Keys.BACK_SPACE, text).build().perform();
+                we.clear();
+                we.sendKeys(text);
                 String value = driver.findElement(by).getAttribute("value");
                 if(!value.equals(text)){
                     log.debug("setText({},{}) failed. Attempting again...",by, text);
