@@ -16,6 +16,7 @@ public class JobTitlePage extends PageBase {
     private final String jobSaveBtn="//button[@type='submit']";
     private final String lblAlreadyExistsMessage = "//div[@class='oxd-form-row'] /div";
     private final String jobCancelBtn= "//div[@class='oxd-form-actions'] /button[1]";
+    private final String jobCancleDone="//*[@id='app']/div[3]//div[3]/button[2]";
     private final String tblJob = ".oxd-table-body";
     private final String jobs=" //div[contains(@class, 'oxd-table-body')]/div[contains(@class,'oxd-table-card')]";
     @FindBy(xpath = jobs)
@@ -60,6 +61,6 @@ public class JobTitlePage extends PageBase {
     public void clickDeleteIcon(String jname){
         String btnxpath="//div[@class='oxd-table-row oxd-table-row--with-border' and .//div[text()='"+jname+"']]//button[1]";
         click(By.xpath(btnxpath));
-        click(By.xpath("//*[@id='app']/div[3]//div[3]/button[2]"));
+        click(By.xpath(jobCancleDone));
       }
 }
