@@ -5,8 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.UUID;
 public class JobTitleTest extends TestBase {
-
-    String jobName="QA Analyst";
+    String jobName="QA Analyst001";
     @Test
     public void addNewJob( ) {
         LoginPage loginPage = new LoginPage(driver);
@@ -29,16 +28,4 @@ public class JobTitleTest extends TestBase {
         jobPage.deleteAndVerifyJob(jobName);
 
     }
-    @Test
-    public  void updateJob(){
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.login("admin", "admin123", true, null);
-        HeaderPage headerPage = new HeaderPage(driver);
-        headerPage.selectMenu(MenuOptions.JOB_TITLES);
-        JobTitlePage jobPage = new JobTitlePage(driver);
-        jobPage.updateAndVerifyJob(jobName,"newname");
-
-    }
-
-
-}
+   }

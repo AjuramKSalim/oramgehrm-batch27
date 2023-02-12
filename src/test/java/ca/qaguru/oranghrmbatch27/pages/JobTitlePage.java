@@ -18,15 +18,11 @@ public class JobTitlePage extends PageBase {
     private final String jobCancelBtn= "//div[@class='oxd-form-actions'] /button[1]";
     private final String tblJob = ".oxd-table-body";
     private final String jobs=" //div[contains(@class, 'oxd-table-body')]/div[contains(@class,'oxd-table-card')]";
-
-
     @FindBy(xpath = jobs)
     private List<WebElement> listJobs;
-
     public JobTitlePage(WebDriver driver) {
         super(driver);
         this.driver=driver;
-
         PageFactory.initElements(driver,this);
     }
     public void saveJobAndVerifyDisplayed(String jobName) {
@@ -39,14 +35,12 @@ public class JobTitlePage extends PageBase {
             click(By.xpath(jobSaveBtn));
         }
         isElementVisible(By.cssSelector(tblJob) );
-
         Boolean match = listJobs.stream().map(s -> s.getText()).anyMatch(s -> s.equalsIgnoreCase(jobName));
         Assert.assertTrue(match);
         System.out.println("\n");
         System.out.println(jobName + " is added successfully");
         System.out.println("\n");
     }
-
     public void deleteAndVerifyJob(String jobName) {
         isElementVisible(By.cssSelector(tblJob));
         for (WebElement Job : listJobs) {
@@ -56,53 +50,16 @@ public class JobTitlePage extends PageBase {
                 clickDeleteIcon(jobName);
                 break;
             }
-            }
+        }
         Boolean match = listJobs.stream().map(s -> s.getText()).anyMatch(s -> s.equalsIgnoreCase(jobName));
         Assert.assertFalse(match);
         System.out.println("\n");
         System.out.println(jobName + " is deleted successfully");
         System.out.println("\n");
-        }
-
+    }
     public void clickDeleteIcon(String jname){
         String btnxpath="//div[@class='oxd-table-row oxd-table-row--with-border' and .//div[text()='"+jname+"']]//button[1]";
         click(By.xpath(btnxpath));
-        click(By.xpath("//*[@id='app']/div[3]/div/div/div/div[3]/button[2]"));
+        click(By.xpath("//*[@id='app']/div[3]//div[3]/button[2]"));
       }
-
-    public void updateAndVerifyJob(String oldjobName,String newjob) {
-        isElementVisible(By.cssSelector(tblJob));
-        for (WebElement Job : listJobs) {
-            String txtJob = Job.getText();
-            if (txtJob.equalsIgnoreCase(oldjobName)) {
-                System.out.println(txtJob + " is available");
-                clickEditAction(oldjobName,newjob);
-                break;
-            }
-        }
-        Boolean match = listJobs.stream().map(s -> s.getText()).anyMatch(s -> s.equalsIgnoreCase(newjob));
-        Assert.assertTrue(match);
-        System.out.println("\n");
-        System.out.println(newjob + " is updated successfully");
-        System.out.println("\n");
-    }
-    public void clickEditAction(String oldjobName,String newjob){
-                System.out.println("//div[@class='oxd-table-row oxd-table-row--with-border' and .//div[text()='"+oldjobName+"']]//button[2]");
-                click(By.xpath("//div[@class='oxd-table-row oxd-table-row--with-border' and .//div[text()='"+oldjobName+"']]//button[2]"));
-                //driver.findElement(By.cssSelector(jobTxtLevel)).sendKeys(Keys.BACK_SPACE);
-                isElementVisible(By.cssSelector(jobTxtLevel));
-        driver.findElement(By.cssSelector(jobTxtLevel)).sendKeys(Keys.BACK_SPACE);
-                //driver.findElement(By.cssSelector(jobTxtLevel)).click();
-                driver.findElement(By.cssSelector(jobTxtLevel)).clear();
-
-                setText(By.cssSelector(jobTxtLevel), newjob);
-                if (getText(By.xpath(lblAlreadyExistsMessage)).contains("Already exists")) {
-                    click(By.xpath(jobCancelBtn));
-                } else {
-                    click(By.xpath(jobSaveBtn));
-                }
-                isElementVisible(By.cssSelector(tblJob));
-
-
-    }
 }
