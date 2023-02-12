@@ -76,4 +76,19 @@ public class LicensePage extends PageBase {
         Assert.assertTrue(isSaved);
         System.out.println("Edit button clicked\n\n");
     }
+
+    // Method to Delete License
+    public void deleteLicense(String oldLicense)
+    {
+        click(By.xpath("//*[@class='oxd-table-card']['"+oldLicense+"']/descendant::button[1]"));
+        click(By.xpath("//*[@id='app']/div[3]/div/div/div/div[3]/button[2]"));
+        isElementVisible(By.cssSelector(tblLicense));
+        for (WebElement License : listLicense)
+        {
+            String txtLicense = License.getText();
+            System.out.println(txtLicense);
+        }
+        System.out.println("\n\nDelete button clicked\n\n");
+    }
+
 }

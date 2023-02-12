@@ -29,4 +29,16 @@ public class LicenseTests extends TestBase {
         int randomNumber1 = (int) (Math.random()*(5)+1);
         licensePage.editLicense( "Microsoft Certified Systems Engineer (MCSE)","GD&T"+randomNumber1);
     }
+
+    @Test
+    public void deleteLicense()
+    {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("Admin", "admin123", true, null);
+        HeaderPage headerPage = new HeaderPage(driver);
+        headerPage.selectMenu(MenuOptions.LICENSES);
+        LicensePage licensePage = new LicensePage(driver);
+        licensePage.deleteLicense("Certified Information Security Manager (CISM)");
+    }
+
 }
