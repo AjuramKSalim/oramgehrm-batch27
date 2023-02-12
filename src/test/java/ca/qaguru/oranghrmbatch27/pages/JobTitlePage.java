@@ -1,16 +1,14 @@
 package ca.qaguru.oranghrmbatch27.pages;
 import ca.qaguru.oranghrmbatch27.library.PageBase;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import java.util.List;
-
 public class JobTitlePage extends PageBase {
     WebDriver driver;
-
     private final String jobAddBtn = ".oxd-button--secondary";
     private final String jobTxtLevel="div[class='oxd-form-row'] input[class*='oxd-input']";
     private final String jobSaveBtn="//button[@type='submit']";
