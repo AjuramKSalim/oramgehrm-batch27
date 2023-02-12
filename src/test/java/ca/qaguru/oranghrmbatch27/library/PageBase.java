@@ -42,6 +42,26 @@ public abstract class PageBase {
             click(by);
         }
     }
+
+    protected void click(WebElement webElement) {
+        try {
+            new WebDriverWait(driver,Duration.ofSeconds(WAIT_TIME))
+                    .until(ExpectedConditions
+                            .elementToBeClickable(webElement))
+                    .click();
+            log.debug("click({}) done successfully",webElement);
+
+        } catch (StaleElementReferenceException exception) {
+            sleep(REATTEMPT_DELAY);
+            log.debug("click({}) failed - StaleElementReferenceException. Attempting again...",webElement);
+            click(webElement);
+        }catch (ElementNotInteractableException exception) {
+            sleep(REATTEMPT_DELAY);
+            log.debug("click({}) failed - ElementNotInteractableException. Attempting again...",webElement);
+            click(webElement);
+        }
+    }
+
     protected void mouseHover(By by) {
         try {
             WebElement we = new WebDriverWait(driver,Duration.ofSeconds(WAIT_TIME))
@@ -92,7 +112,7 @@ public abstract class PageBase {
                 WebElement we = new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIME))
                         .until(ExpectedConditions
                                 .presenceOfElementLocated(by));
-                we.clear();
+                clearWebElement(we);
                 we.sendKeys(text);
                 String value = driver.findElement(by).getAttribute("value");
                 if(!value.equals(text)){
@@ -343,5 +363,13 @@ public abstract class PageBase {
             scrollInToView(by);
         }
         return null;
+    }
+
+    private void clearWebElement(WebElement element) {
+        String value  = element.getAttribute("value");
+
+        for(int i=0; i<value.length(); i++){
+            element.sendKeys(Keys.BACK_SPACE);
+        }
     }
 }
