@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.util.List;
+import java.util.Optional;
 
 public class MembershipsPage extends PageBase {
     WebDriver driver;
@@ -36,10 +37,61 @@ public class MembershipsPage extends PageBase {
         } else {
             click(By.xpath(membershipSaveButtonXPath));
         }
+        isElementVisible(By.cssSelector(membershipTableClassName));
+
         Boolean match = membershipTableElements.stream().map(s -> s.getText()).anyMatch(s -> s.equalsIgnoreCase(membershipName));
         Assert.assertTrue(match);
         System.out.println("\n");
         System.out.println(membershipName + " is added successfully");
+        System.out.println("\n");
+    }
+
+    public void updateMembershipAndVerifyIfChanged(String oldName, String newName) throws Exception {
+        isElementVisible(By.cssSelector(membershipTableClassName));
+        Optional<WebElement> optionalWebElement = membershipTableElements.stream()
+                .filter(element ->  element.getText().equalsIgnoreCase(oldName))
+                .findFirst();
+        if(optionalWebElement.isEmpty()) {
+            throw new Exception("The requested membership entry could not be found");
+        }
+
+        WebElement editButton = optionalWebElement.get()
+                .findElement(By.cssSelector((".oxd-icon.bi-pencil-fill")));
+        click(editButton);
+        setText(By.cssSelector(membershipNameTextAreaCssSelector), newName);
+
+        if (getText(By.xpath(membershipNameAlreadyExistsLabel)).contains("Already exists")) {
+            click(By.xpath(addMembershipCancelButtonXPath));
+        } else {
+            click(By.xpath(membershipSaveButtonXPath));
+        }
+        isElementVisible(By.cssSelector(membershipTableClassName));
+
+        Boolean match = membershipTableElements.stream().map(s -> s.getText()).anyMatch(s -> s.equalsIgnoreCase(newName));
+        Assert.assertTrue(match);
+        System.out.println("\n");
+        System.out.println(oldName + " was updated to "+ newName +" successfully");
+        System.out.println("\n");
+    }
+
+    public void deleteMembershipAndVerifyItsDeleted(String name) throws Exception {
+        isElementVisible(By.cssSelector(membershipTableClassName));
+        Optional<WebElement> optionalWebElement = membershipTableElements.stream()
+                .filter(element ->  element.getText().equalsIgnoreCase(name))
+                .findFirst();
+        if(optionalWebElement.isEmpty()) {
+            throw new Exception("The requested membership entry could not be found");
+        }
+
+        WebElement deleteButton = optionalWebElement.get()
+                .findElement(By.cssSelector((".oxd-icon.bi-trash")));
+        click(deleteButton);
+        click(By.xpath("//button[normalize-space()='Yes, Delete']"));
+
+        Boolean match = membershipTableElements.stream().map(s -> s.getText()).anyMatch(s -> s.equalsIgnoreCase(name));
+        Assert.assertFalse(match);
+        System.out.println("\n");
+        System.out.println(name + " was deleted successfully");
         System.out.println("\n");
     }
 }
